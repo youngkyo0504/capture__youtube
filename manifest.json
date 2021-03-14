@@ -1,0 +1,11 @@
+{
+  "name": "Youtube capture!",
+  "description": "Youtube capture!",
+  "version": "1.0",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "/dot.png"
+  },
+  "manifest_version": 3
+}
