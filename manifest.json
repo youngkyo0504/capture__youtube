@@ -2,7 +2,7 @@
   "name": "Youtube capture!",
   "description": "Youtube capture!",
   "version": "1.0",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "/dot.png"
