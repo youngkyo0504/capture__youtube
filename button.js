@@ -1,4 +1,5 @@
 var button = document.getElementById("videoCatch");
+const save_button = document.querySelector("#save");
 
 button.addEventListener(
   "click",
@@ -16,10 +17,18 @@ button.addEventListener(
         inserted.innerHTML = injectionResults[0].result;
       }
     );
+    save_button.classList.remove("none");
   },
   { once: false }
 );
 
+save_button.addEventListener("click", () => {
+  const image = document.querySelector(".img");
+  const link = document.createElement("a");
+  link.href = image.src;
+  link.download = "capture";
+  link.click();
+});
 function selectVideo() {
   const b = () => {
     // 비디오 원본 크기만큼 캔버스태그를 생성해준다.
