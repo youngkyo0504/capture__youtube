@@ -13,8 +13,29 @@ button.addEventListener(
       },
       (injectionResults) => {
         const inserted = document.querySelector(".inserted");
-        //selectvideo에서 반환된 값을 extension의 HTML에 추가해준다.
-        inserted.innerHTML = injectionResults[0].result;
+        //selectvideo()에서 반환된 값을 extension의 HTML에 추가해준다.
+
+        //반환값은 배열의 형태 result[0]은    result[1]은 Html 텍스트 형태 ,
+        inserted.innerHTML = injectionResults[0].result[1];
+
+        async function writeClipImg() {
+          try {
+            const imgURL = injectionResults[0].result[0];
+            const data = await fetch(imgURL);
+            const blob = await data.blob();
+            console.log(imgURL);
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                [blob.type]: blob,
+              }),
+            ]);
+            console.log("Fetched image copied.");
+          } catch (err) {
+            console.error(err.name, err.message);
+          }
+        }
+        writeClipImg();
+        console.log(injectionResults);
       }
     );
     save_button.classList.remove("none");
@@ -50,8 +71,10 @@ function selectVideo() {
     newImage.style.height = `${canvas.height * 0.27}px`;
     newImage.style.display = "block";
     newImage.style.position = "relative";
-    //이미지 태그를 반환
-    return newImage.outerHTML;
+
+    //이미지 소스와 태그를 배열로 반환
+    return [newImage.src, newImage.outerHTML];
   };
+
   return b();
 }
