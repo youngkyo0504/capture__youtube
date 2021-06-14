@@ -1,5 +1,5 @@
 
-# Take a screenshot of any YouTube video with one click (or other video)
+# Take a screenshot of any video with one click 
 
 this is chrome extension!
 
