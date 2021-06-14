@@ -10,4 +10,6 @@ click [here](https://www.youtube.com/watch?v=Q8YnZipen_c)
 
 ![god](/god.jpg)
 
+---
+
 ver2.0 업데이트 : 버튼 클릭시 클립보드에 이미지 png형태로 저장 
