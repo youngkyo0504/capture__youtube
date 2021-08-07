@@ -1,0 +1,23 @@
+{
+  "name": "capture__youtube",
+  "version": "1.0.0",
+  "description": "this is chrome extension!",
+  "main": "app.js",
+  "dependencies": {
+    "@types/chrome": "0.0.154"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youngkyo0504/capture__youtube.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/youngkyo0504/capture__youtube/issues"
+  },
+  "homepage": "https://github.com/youngkyo0504/capture__youtube#readme"
+}
