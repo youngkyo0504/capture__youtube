@@ -21,7 +21,9 @@ button.addEventListener("click", async () => {
       async function writeClipImg() {
         try {
           const data = await fetch(imgSource);
+          console.log(data);
           const blob = await data.blob();
+          console.log(blob);
           await navigator.clipboard.write([
             new ClipboardItem({
               [blob.type]: blob,
@@ -51,6 +53,7 @@ function selectVideo() {
   // 비디오 원본 크기만큼 캔버스태그를 생성해준다.
   const canvas = document.createElement("canvas");
   const video = document.querySelector("video");
+  console.log(video);
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
 
@@ -60,6 +63,7 @@ function selectVideo() {
 
   // 캔버스를 이미지 태그로 만든다.
   const dataURI = canvas.toDataURL("image/png");
+  console.log(dataURI);
   const newImage = document.createElement("img");
   newImage.src = dataURI;
   newImage.classList.add("img");
