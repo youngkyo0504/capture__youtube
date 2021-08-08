@@ -24,6 +24,7 @@ export function selectVideo() {
     // 유튜브라면 title 가져오기 
     const title = document.querySelector("#container > h1 > yt-formatted-string")
     const videoTitle = title ? title.textContent : "capture";
+
     //이미지 소스와 태그를 배열로 반환
     return [newImage.src, newImage.outerHTML, videoTitle];
 }
