@@ -3,6 +3,7 @@ import { selectVideo, saveImage, writeClipImg } from "./method.js"
 
 const button = document.querySelector("#select-btn");
 const saveButton = document.querySelector("#save-btn");
+let title; // title변수 선언 
 
 button.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -16,8 +17,9 @@ button.addEventListener("click", async () => {
   const inserted = document.querySelector(".inserted");
 
   //반환값은 배열의 형태 result[0]은    result[1]은 Html 텍스트 형태 ,
-  const [imgSource, innerHTML] = injectionResults[0].result;
+  const [imgSource, innerHTML, videoTitle] = injectionResults[0].result;
   inserted.innerHTML = innerHTML;
+  title = videoTitle;
 
   //클립보드에 복사
   writeClipImg(imgSource);
@@ -27,6 +29,6 @@ button.addEventListener("click", async () => {
 
 //사진다운로드 버튼
 saveButton.addEventListener("click", () => {
-  saveImage(".image")
+  saveImage(".img", title)
 });
 

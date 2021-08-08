@@ -21,8 +21,11 @@ export function selectVideo() {
     newImage.style.display = "block";
     newImage.style.position = "relative";
 
+    // 유튜브라면 title 가져오기 
+    const title = document.querySelector("#container > h1 > yt-formatted-string")
+    const videoTitle = title ? title.textContent : "capture";
     //이미지 소스와 태그를 배열로 반환
-    return [newImage.src, newImage.outerHTML];
+    return [newImage.src, newImage.outerHTML, videoTitle];
 }
 
 //클립보드에 복사
@@ -43,10 +46,10 @@ export async function writeClipImg(imgSource) {
     }
 }
 
-export const saveImage = (selector) => {
+export const saveImage = (selector, videoTitle) => {
     const image = document.querySelector(selector);
     const link = document.createElement("a");
     link.href = image.src;
-    link.download = "capture";
+    link.download = videoTitle
     link.click();
 }
