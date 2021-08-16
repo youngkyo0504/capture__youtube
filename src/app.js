@@ -1,11 +1,11 @@
 import { selectVideo, saveImage, writeClipImg } from "./method.js"
 
 
-const button = document.querySelector("#select-btn");
+const selectButton = document.querySelector("#select-btn");
 const saveButton = document.querySelector("#save-btn");
 let title; // title변수 선언 
 
-button.addEventListener("click", async () => {
+selectButton.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   const injectionResults = await chrome.scripting.executeScript(
     {
