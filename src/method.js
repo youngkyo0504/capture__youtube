@@ -1,5 +1,24 @@
-export function selectVideo() {
-    // 비디오 원본 크기만큼 캔버스태그를 생성해준다.
+const FIRST_FUNC = 0;
+
+export function captureVideo() {
+    const captureCanvas = drawCaptureInCanvas();
+    const captureImageHTML = convertCanvasToImageHTML(captureCanvas);
+    const videoTitle = getYoutubeVideoTitle();
+
+    return {
+        src: captureImageHTML.src,
+        html: captureImageHTML.outerHTML,
+        title: videoTitle
+    }
+}
+
+export function insertCaptureHTML(videoCapture) {
+    const inserted = document.querySelector(".inserted");
+    inserted.innerHTML = videoCapture.html;
+}
+
+export function drawCaptureInCanvas() {
+    console.log("draw")
     const canvas = document.createElement("canvas");
     const video = document.querySelector("video");
     console.log(video);
@@ -10,9 +29,17 @@ export function selectVideo() {
     const ctx = canvas.getContext("2d");
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    // 캔버스를 이미지 태그로 만든다.
+    return canvas
+}
+
+export function getYoutubeVideoTitle() {
+    const title = document.querySelector("#container > h1 > yt-formatted-string")
+    const videoTitle = title ? title.textContent : "capture";
+    return videoTitle
+}
+
+export function convertCanvasToImageHTML(canvas) {
     const dataURI = canvas.toDataURL("image/png");
-    console.log(dataURI);
     const newImage = document.createElement("img");
     newImage.src = dataURI;
     newImage.classList.add("img");
@@ -20,15 +47,8 @@ export function selectVideo() {
     newImage.style.height = `${canvas.height * 0.27}px`;
     newImage.style.display = "block";
     newImage.style.position = "relative";
-
-    // 유튜브라면 title 가져오기 
-    const title = document.querySelector("#container > h1 > yt-formatted-string")
-    const videoTitle = title ? title.textContent : "capture";
-
-    //이미지 소스와 태그를 배열로 반환
-    return [newImage.src, newImage.outerHTML, videoTitle];
+    return newImage
 }
-
 //클립보드에 복사
 export async function writeClipImg(imgSource) {
     try {
@@ -47,10 +67,22 @@ export async function writeClipImg(imgSource) {
     }
 }
 
-export const saveImage = (selector, videoTitle) => {
+export const saveImageWithTitle = (selector, videoTitle) => {
     const image = document.querySelector(selector);
     const link = document.createElement("a");
     link.href = image.src;
     link.download = videoTitle
     link.click();
+}
+
+
+export const getChromeScript = async (func) => {
+    console.log(func)
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    const injectionResults = await chrome.scripting.executeScript(
+        {
+            target: { tabId: tab.id },
+            func: captureVideo,
+        })
+    return injectionResults[FIRST_FUNC].result;
 }
