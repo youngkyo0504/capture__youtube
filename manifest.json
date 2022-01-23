@@ -1,7 +1,7 @@
 {
-  "name": "Youtube capture!",
-  "description": "Youtube capture!",
-  "version": "2.0.1",
+  "name": "YouTube Screenshot ",
+  "description": "you can get youtube screenshot!",
+  "version": "2.0.2",
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html",
