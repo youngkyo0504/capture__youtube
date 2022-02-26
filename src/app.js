@@ -1,17 +1,23 @@
-import { selectVideo, saveImage, writeClipImg } from "./method.js"
-
-
+import { selectVideo, saveImage, writeClipImg } from "./method.js";
+import "../asset/css/style.css";
+import youtube from "../asset/img/youtube.png";
 const selectButton = document.querySelector("#select-btn");
 const saveButton = document.querySelector("#save-btn");
-let title; // title변수 선언 
+const toast = document.querySelector(".toast");
+toast.addEventListener("animationend", (e) => {
+  console.log(e.currentTarget);
+  e.currentTarget.classList.remove("active");
+});
+let title; // title변수 선언
 
 selectButton.addEventListener("click", async () => {
+  toast.classList.remove("active");
+
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  const injectionResults = await chrome.scripting.executeScript(
-    {
-      target: { tabId: tab.id },
-      func: selectVideo,
-    })
+  const injectionResults = await chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    func: selectVideo,
+  });
 
   //selectvideo()에서 반환된 값을 extension의 HTML에 추가해준다.
   const inserted = document.querySelector(".inserted");
@@ -23,12 +29,13 @@ selectButton.addEventListener("click", async () => {
 
   //클립보드에 복사
   writeClipImg(imgSource);
+  //toasts animation
 
+  toast.classList.add("active");
   saveButton.classList.remove("none");
 });
 
 //사진다운로드 버튼
 saveButton.addEventListener("click", () => {
-  saveImage(".img", title)
+  saveImage(".img", title);
 });
-

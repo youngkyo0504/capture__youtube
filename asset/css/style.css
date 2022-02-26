@@ -118,3 +118,54 @@ body {
 .none {
   display: none;
 }
+@keyframes slidein {
+  0% {
+    opacity: 0;
+
+    bottom: -10%;
+  }
+
+  30% {
+    opacity: 1;
+    bottom: 5%;
+  }
+  70% {
+    opacity: 1;
+    bottom: 5%;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.active {
+  z-index: 1;
+  animation-name: slidein;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+.stack {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  opacity: 0;
+  width: 210px;
+  font-size: 16px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+  background-color: #58f8a5;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  border-radius: 16px;
+}
