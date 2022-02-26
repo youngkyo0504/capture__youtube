@@ -1,6 +1,5 @@
 import { selectVideo, saveImage, writeClipImg } from "./method.js";
-import "../asset/css/style.css";
-import youtube from "../asset/img/youtube.png";
+
 const selectButton = document.querySelector("#select-btn");
 const saveButton = document.querySelector("#save-btn");
 const toast = document.querySelector(".toast");

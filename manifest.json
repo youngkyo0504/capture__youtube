@@ -4,7 +4,7 @@
   "version": "2.0.3",
   "permissions": ["activeTab", "scripting"],
   "action": {
-    "default_popup": ".dist/index.html",
+    "default_popup": "./popup.html",
     "default_icon": "./asset/img/dot.png"
   },
   "manifest_version": 3
