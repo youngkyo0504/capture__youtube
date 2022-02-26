@@ -7,5 +7,5 @@
     "default_popup": ".dist/index.html",
     "default_icon": "./asset/img/dot.png"
   },
-  "manifest_version": 4
+  "manifest_version": 3
 }
