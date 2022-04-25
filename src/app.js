@@ -1,10 +1,12 @@
-import { selectVideo, saveImage, writeClipImg } from "./method.js";
-
+import { getVideoSource, saveImage, writeClipImg } from "./method.js";
+import "./asset/css/style.css";
+import icon from "./asset/img/youtube.png";
+import dot from "./asset/img/dot.png";
+import manifest from "./manifest.json";
 const selectButton = document.querySelector("#select-btn");
 const saveButton = document.querySelector("#save-btn");
 const toast = document.querySelector(".toast");
 toast.addEventListener("animationend", (e) => {
-  console.log(e.currentTarget);
   e.currentTarget.classList.remove("active");
 });
 let title; // title변수 선언
@@ -15,7 +17,7 @@ selectButton.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   const injectionResults = await chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: selectVideo,
+    func: getVideoSource,
   });
 
   //selectvideo()에서 반환된 값을 extension의 HTML에 추가해준다.

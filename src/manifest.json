@@ -1,0 +1,11 @@
+{
+  "name": "YouTube Screenshot ",
+  "description": "you can get youtube screenshot!",
+  "version": "2.0.5",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "./popup.html",
+    "default_icon": "./dot.png"
+  },
+  "manifest_version": 3
+}

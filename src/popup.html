@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link rel="stylesheet" href="./asset/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/8fcdce64f5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="flex">
+      <div class="title">
+        <%= htmlWebpackPlugin.options.title %>
+        <img class="youtube" src="youtube.png" alt="" />
+      </div>
+      <button type="button" id="select-btn" class="mouse_effect">Select</button>
+    </div>
+    <section class="inserted"></section>
+    <div class="toast-container">
+      <div class="stack toast">Copied</div>
+    </div>
+    <button type="button" id="save-btn" class="none mouse_effect">Save</button>
+  </body>
+</html>

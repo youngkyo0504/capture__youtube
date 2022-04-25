@@ -46,7 +46,7 @@ body {
   margin: 0px;
   height: 56px;
 
-  background-color: #f8585b;
+  background-color: #ff6b6b;
   border-radius: 5px;
 
   border: none;
@@ -95,18 +95,17 @@ body {
 }
 
 #save-btn {
-  margin: 0px;
+  padding: 16px 20px;
+  margin: 20 0px;
   height: 20px;
   font-size: 1.2rem;
-  background-color: #377ee7;
+  background-color: #4d96ff;
   border-radius: 4px;
   line-height: 4px;
   border: none;
-
+  vertical-align: middle;
   color: #fff;
-
-  padding: 0;
-
+  line-height: 0;
   text-align: center;
 
   text-decoration: none;
@@ -163,9 +162,9 @@ body {
   align-items: center;
   padding: 10px 10px 10px 10px;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
-  background-color: #58f8a5;
+  background-color: #6bcb77;
   text-align: center;
   color: white;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 8px;
 }
