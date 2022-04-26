@@ -5,7 +5,7 @@ export function getVideoSource() {
     newImage.src = dataURI;
     newImage.classList.add("img");
     newImage.style.width = "100%";
-    newImage.style.height = `auto`;
+    newImage.style.height = "auto";
     newImage.style.display = "block";
     newImage.style.position = "relative";
     return newImage;
@@ -33,17 +33,17 @@ export function getVideoSource() {
   const dataURI = canvas.toDataURL("image/png");
   const newImage = canvasToImgElement(dataURI);
   const videoTitle = getVideoTitle();
-  //이미지 소스와 태그를 배열로 반환
+  // 이미지 소스와 태그를 배열로 반환
   return [newImage.src, newImage.outerHTML, videoTitle];
 }
 
-//클립보드에 복사
+// 클립보드에 복사
 export async function writeClipImg(imgSource) {
   try {
     const data = await fetch(imgSource);
     const blob = await data.blob();
     await navigator.clipboard.write([
-      new ClipboardItem({
+      new window.ClipboardItem({
         [blob.type]: blob,
       }),
     ]);

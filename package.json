@@ -5,13 +5,23 @@
   "main": "webpack.config.js",
   "dependencies": {
     "clean-webpack-plugin": "^4.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "html-webpack-plugin": "^5.5.0",
-    "html2canvas": "^1.4.1"
+    "husky": "^7.0.4"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "css-loader": "^6.6.0",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "file-loader": "^6.2.0",
+    "husky": "^7.0.0",
+    "install": "^0.13.0",
+    "lint-staged": "^12.4.0",
+    "npm": "^8.7.0",
+    "prettier": "2.6.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
@@ -19,7 +29,9 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "build:Dev": "cross-env NODE_ENV=development webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src --fix",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -30,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/youngkyo0504/capture__youtube/issues"
   },
-  "homepage": "https://github.com/youngkyo0504/capture__youtube#readme"
+  "homepage": "https://github.com/youngkyo0504/capture__youtube#readme",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }
