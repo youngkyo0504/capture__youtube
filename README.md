@@ -7,7 +7,7 @@ click [here](https://www.youtube.com/watch?v=Q8YnZipen_c)
 
 [Download link](https://chrome.google.com/webstore/detail/youtube-capture/dhnikjofbddmfnkonpedeajjkhoecdfp?hl=ko)
 
-![god](./asset/img/example.png)
+![god](./src/asset/img/example.png)
 
 ## 업데이트 정보
 
