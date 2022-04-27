@@ -19,8 +19,15 @@ export function getVideoSource() {
   }
   function getCanvasWithVideo() {
     // 비디오 원본 크기만큼 캔버스태그를 생성해준다.
+    let video;
     const canvas = document.createElement("canvas");
-    const video = document.querySelector("video");
+    const videos = document.querySelectorAll("video");
+    videos.forEach((videoElement) => {
+      if (videoElement.src) {
+        video = videoElement;
+      }
+    });
+    if (!video) throw new Error("there is no video");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
