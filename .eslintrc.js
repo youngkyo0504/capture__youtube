@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["airbnb-base","eslint-config-prettier"], // eslint 와 prettier 겹치는 부분을 끄고 prettier에 위임한다. 
+  extends: ["eslint-config-prettier"], // eslint 와 prettier 겹치는 부분을 끄고 prettier에 위임한다. 
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
