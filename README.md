@@ -1,18 +1,18 @@
 # Get a screenshot of any video with one click
 
-this is chrome extension!
+![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/dhnikjofbddmfnkonpedeajjkhoecdfp)
+
+**YouTube Screenshot** is a handy Chrome extension that allows you to easily capture high-quality screenshots from YouTube videos. 
+
+With a single click, you can get the original width and height of the video capture, copy it to the clipboard, or save it as a PNG file.
+
+Whether you need a screenshot for reference or sharing, YouTube Screenshot makes the process quick and hassle-free. Install the extension and start capturing YouTube screenshots today!
 
 if you want to know how to work,
 click [here](https://www.youtube.com/watch?v=Q8YnZipen_c)
 
 [Download link](https://chrome.google.com/webstore/detail/youtube-capture/dhnikjofbddmfnkonpedeajjkhoecdfp?hl=ko)
 
-![god](./src/asset/img/example.png)
+![example](./src/asset/img/example.png)
 
-## 업데이트 정보
 
-ver2.0 업데이트 : 버튼 클릭시 클립보드에 png형태로 저장
-
-## 적용 대상
-
-유튜브
